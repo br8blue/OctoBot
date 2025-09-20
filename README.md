@@ -1,3 +1,3 @@
 # OctoBot
-OctoBot is a chatbot powered by OpenAI's ChatGPT.
-This line is a test.
+
+When you visit the ChatGPT website, you've definitely noticed the lack of style. Don't you wish it had a little more flair to it? You may think the appearance is actually just a small aspect of the website, but how a website looks and affects your eyes is actually much more important than you think. Studies from Harvard University present the notion that brighter screens and themes on websites (like ChatGPT's default one) actually put more strain on your eyes. This is because it forces your eyes to adapt to the surface you are looking at, which is the same reason why turning on the lights after waking up makes it so hard to keep them fully open. OctoBot solves this issue, as it comes with a default darker and calmer background. However, this background color is also customizable, as well as the font color that OctoBot (ChatGPT) speaks in. This allows the user to have a more personalized experience that is better tailored to them, while also being ocularly healthier.
