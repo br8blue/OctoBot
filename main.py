@@ -2,7 +2,7 @@ from gpt4all import GPT4All
 import os
 
 
-model_path = "C:/Users/neels_xc/OneDrive/Desktop/GPTLocal"
+model_path = "C:/Users/neels_xc/OneDrive/Desktop/GPTLocal/nomic-ai-gpt4all-falcon-Q4_K.gguf"
 model_file = "nomic-ai-gpt4all-falcon-Q4_K.gguf"
 full_path = "C:/Users/neels_xc/OneDrive/Desktop/GPTLocal/nomic-ai-gpt4all-falcon-Q4_K.gguf"
 
@@ -11,7 +11,7 @@ if not os.path.exists(full_path):
     raise FileNotFoundError(f"Cannot find model file at: {full_path}")
 
 
-model = GPT4All(model_name=model_file, model_path=model_path)
+model = GPT4All("C:/Users/neels_xc/OneDrive/Desktop/GPTLocal/nomic-ai-gpt4all-falcon-Q4_K.gguf")
 
 
 print("OctoBot: Hello there! My name is Octobot. How may I help you?")
