@@ -18,7 +18,7 @@ if not os.path.exists(full_path):
 
 print("OctoBot: Hello there! My name is Octobot. How may I help you?")
 print("Type $endconvo to exit.\n")
-
+  
 
 with model.chat_session():
     while True:
