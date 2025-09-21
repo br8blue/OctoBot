@@ -3,31 +3,35 @@ import os
 
 
 model_path = "C:/Users/neels_xc/OneDrive/Desktop/GPTLocal"
-model_file = "nomic-ggml-gpt4all-falcon-Q4_K.gguf"
+model_file = "nomic-ai-gpt4all-falcon-Q4_K.gguf"
 full_path = os.path.join(model_path, model_file)
 
 if not os.path.exists(full_path):
     raise FileNotFoundError(f"Cannot find model file at: {full_path}")
 
 
-model = GPT4All(model_file, model_path=model_path)
+model = GPT4All(model_name=model_file, model_path=model_path)
 
 
-print("Hello there! My name is Octobot. How may I help you?\nNote: if at any point you'd like to end the conversation, please type $endconvo\n")
+print("OctoBot: Hello there! My name is Octobot. How may I help you?")
+print("Type $endconvo to exit.\n")
 
 
-while True:
-    user_input = input("You: ")
+with model.chat_session():
+    while True:
+        user_input = input("You: ")
 
-    if user_input.strip() == "$endconvo":
-        print("OctoBot: Conversation ended. See you next time!")
-        break
+        if user_input.strip().lower() == "$endconvo":
+            print("This conversation has been closed.")
+            break
 
-    try:
+        try:
+            response = model.generate(user_input)
 
-        response = model.chat_completion([
-            {"role": "user", "content": user_input}
-        ])
-        print("\nOctoBot:", response, "\n")
-    except Exception as e:
-        print("OctoBot: Error occurred:", e)
+            if isinstance(response, str):
+                print("OctoBot:", response.strip())
+            else:
+                print("OctoBot: Unexpected response type:", type(response))
+
+        except Exception as e:
+            print("OctoBot: Error occurred:", e)
