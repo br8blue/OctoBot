@@ -4,7 +4,8 @@ import os
 
 model_path = "C:/Users/neels_xc/OneDrive/Desktop/GPTLocal"
 model_file = "nomic-ai-gpt4all-falcon-Q4_K.gguf"
-full_path = os.path.join(model_path, model_file)
+full_path = "C:/Users/neels_xc/OneDrive/Desktop/GPTLocal/nomic-ai-gpt4all-falcon-Q4_K.gguf"
+
 
 if not os.path.exists(full_path):
     raise FileNotFoundError(f"Cannot find model file at: {full_path}")
