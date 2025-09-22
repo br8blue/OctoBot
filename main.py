@@ -16,7 +16,8 @@ chat_history = []
 
 
 def build_prompt(history):
-    prompt = "You are OctoBot, a chill, witty assistant. Keep replies short and natural. Avoid repeating questions. Respond like you're chatting with a friend.\n\n"
+    prompt = "You are OctoBot, a helpful assistant. Keep replies short and natural."
+
     for turn in history:
         prompt += f"You: {turn['user']}\nOctoBot: {turn['bot']}\n"
     prompt += f"You: {history[-1]['user']}\nOctoBot:"
@@ -46,12 +47,13 @@ with model.chat_session():
 
             response = model.generate(
                 prompt,
-                max_tokens=50,
+                max_tokens=30, 
                 temp=0.7,
                 top_k=40,
                 top_p=0.9,
                 repeat_penalty=1.1
-            )
+)
+
 
             print("OctoBot:", response.strip())
 
