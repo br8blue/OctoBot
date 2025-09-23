@@ -12,7 +12,7 @@ model = GPT4All(model_path)
 
 chat_history = []
 
-max_tokens = 30
+max_tokens = 60 
 temp = 0.7
 top_k = 40
 top_p = 0.9
@@ -35,6 +35,13 @@ with model.chat_session():
         if user_input.strip().lower() == "$endconvo":
             print("This conversation has been closed.")
             break
+
+
+        elif user_input.strip().lower() == "$reset":
+            chat_history = []
+            print("Conversation reset. Octobot is unaware of any prior context.")
+            continue
+
 
         try:
             if not chat_history:
