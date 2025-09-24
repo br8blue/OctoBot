@@ -19,14 +19,14 @@ top_p = 0.9
 repeat_penalty = 1.1
 
 def build_prompt(history):
-    prompt = "You are OctoBot, a helpful assistant. Keep replies short and natural."
+    prompt = "You are OctoBot, a friendly and helpful assistant. Keep replies short and natural."
     for turn in history:
         prompt += f"You: {turn['user']}\nOctoBot: {turn['bot']}\n"
     prompt += f"You: {history[-1]['user']}\nOctoBot:"
     return prompt
 
 print("OctoBot: Hello there! My name is Octobot. How may I help you?")
-print("If at any point you would like to end the conversation, type $endconvo.\n")
+
 
 with model.chat_session():
     while True:
@@ -36,12 +36,7 @@ with model.chat_session():
             print("This conversation has been closed.")
             break
 
-
-        elif user_input.strip().lower() == "$reset":
-            chat_history = []
-            print("Conversation reset. Octobot is unaware of any prior context.")
-            continue
-
+        
 
         try:
             if not chat_history:
@@ -56,7 +51,7 @@ with model.chat_session():
                 prompt,
                 max_tokens=max_tokens,
                 temp=temp,
-                top_k=top_k,
+                top_k=top_k,  
                 top_p=top_p,
                 repeat_penalty=repeat_penalty
             )
