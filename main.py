@@ -1,15 +1,13 @@
+from flask import Flask, request, jsonify
 from gpt4all import GPT4All
 import os
-import flask
-import time
 
 model_path = r"C:\Users\neels_xc\AILocal\mythomax-l2-13b.Q4_K_M.gguf"
-
 if not os.path.exists(model_path):
     raise FileNotFoundError(f"Cannot find model file at: {model_path}")
 
 model = GPT4All(model_path)
-
+app = Flask(__name__)
 chat_history = []
 
 max_tokens = 60 
@@ -25,38 +23,37 @@ def build_prompt(history):
     prompt += f"You: {history[-1]['user']}\nOctoBot:"
     return prompt
 
-print("OctoBot: Hello there! My name is Octobot. How may I help you?")
+@app.route("/chat", methods=["POST"])
+def chat():
+    user_input = request.json.get("message", "").strip()
 
+    if user_input.lower() == "$endconvo":
+        return jsonify({"response": "This conversation has been closed."})
 
-with model.chat_session():
-    while True:
-        user_input = input("You: ")
+    try:
+        if not chat_history:
+            chat_history.append({'user': user_input, 'bot': ""})
+        else:
+            chat_history[-1]['bot'] = response.strip()
+            chat_history.append({'user': user_input, 'bot': ""})
 
-        if user_input.strip().lower() == "$endconvo":
-            print("This conversation has been closed.")
-            break
+        prompt = build_prompt(chat_history)
 
-        
+        response = model.generate(
+            prompt,
+            max_tokens=max_tokens,
+            temp=temp,
+            top_k=top_k,
+            top_p=top_p,
+            repeat_penalty=repeat_penalty
+        )
 
-        try:
-            if not chat_history:
-                chat_history.append({'user': user_input, 'bot': ""})
-            else:
-                chat_history[-1]['bot'] = response.strip()
-                chat_history.append({'user': user_input, 'bot': ""})
+        reply = response.strip()
+        chat_history[-1]['bot'] = reply
+        return jsonify({"response": reply})
 
-            prompt = build_prompt(chat_history)
+    except Exception as e:
+        return jsonify({"response": f"Error occurred: {str(e)}"})
 
-            response = model.generate(
-                prompt,
-                max_tokens=max_tokens,
-                temp=temp,
-                top_k=top_k,  
-                top_p=top_p,
-                repeat_penalty=repeat_penalty
-            )
-
-            print("OctoBot:", response.strip())
-
-        except Exception as e:
-            print("Error occurred:", e)
+if __name__ == "__main__":
+    app.run(debug=True)
