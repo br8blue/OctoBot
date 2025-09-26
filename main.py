@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 from gpt4all import GPT4All
 import os
+from flask_cors import CORS
 
 
 model_path = r"C:\Users\neels_xc\AILocal\mythomax-l2-13b.Q4_K_M.gguf"
@@ -12,6 +13,9 @@ if not os.path.exists(model_path):
 model = GPT4All(model_path)
 app = Flask(__name__)
 chat_history = []
+
+app = Flask(__name__)
+CORS(app)
 
 
 
