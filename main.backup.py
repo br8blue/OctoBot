@@ -62,3 +62,4 @@ while True:
     reply = response.strip()
     chat_history[-1]['bot'] = reply
     print(f"OctoBot: {reply}")
+
