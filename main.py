@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 from gpt4all import GPT4All
 import os
 from flask_cors import CORS
-
+import traceback
 
 
 os.environ["GPT4ALL_NO_CUDA"] = ""
@@ -19,7 +19,7 @@ model = GPT4All(model_path)
 app = Flask(__name__)
 chat_history = []
 
-app = Flask(__name__)
+
 CORS(app, resources={r"/chat": {"origins": "http://localhost:5500"}})
 
 
@@ -75,11 +75,12 @@ def chat():
         chat_history[-1]['bot'] = reply
         return jsonify({"response": reply})
 
+
+
     except Exception as e:
         print("=== Error ===")
-        print(e)
+        traceback.print_exc()
         return jsonify({"response": f"Error occurred: {str(e)}"})
-
 
 
 if __name__ == "__main__":

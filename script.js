@@ -4,9 +4,11 @@ const sendButton = document.getElementById("sendButton");
 const loadingText = document.getElementById("loadingText");
 
 
+
 sendButton.onclick = async () => {
   const message = input.value.trim();
   if (!message) return;
+
 
 
   chatbox.innerHTML += `<div><strong>You:</strong> ${message}</div>`;
@@ -24,7 +26,7 @@ sendButton.onclick = async () => {
     const data = await res.json();
     chatbox.innerHTML += `<div><strong>OctoBot:</strong> ${data.response}</div>`;
   } catch (err) {
-    chatbox.innerHTML += `<div><strong>OctoBot:</strong> Error talking to OctoBot.</div>`;
+    chatbox.innerHTML += `<div><strong>OctoBot:</strong> Oops! We bumped into an error with OctoBot. Please try again at a later time. </div>`;
   }
 
 
