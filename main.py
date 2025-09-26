@@ -4,6 +4,11 @@ import os
 from flask_cors import CORS
 
 
+
+os.environ["GPT4ALL_NO_CUDA"] = ""
+
+
+
 model_path = r"C:\Users\neels_xc\AILocal\mythomax-l2-13b.Q4_K_M.gguf"
 if not os.path.exists(model_path):
     raise FileNotFoundError(f"Cannot find model file at: {model_path}")
@@ -15,7 +20,7 @@ app = Flask(__name__)
 chat_history = []
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/chat": {"origins": "http://localhost:5500"}})
 
 
 
