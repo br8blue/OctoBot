@@ -51,6 +51,10 @@
 }
 
 
+#aChat{
+transform: translate(0%, -320%);
+}
+
 
 #sendButton::after {
   content: '';
@@ -95,7 +99,7 @@ body {
   font-size: 80px;
   margin-bottom: 20px;
   text-align:center;
-  transform: translate(0%, -275%);
+  transform: translate(0%, -255%);
 }
 
 #octobotIntroduction {
@@ -103,7 +107,7 @@ body {
   margin-bottom: 25px;
   text-align:center;
   width: default;
-  transform: translate(0%, -225%);
+  transform: translate(0%, -215%);
 }
 
 
@@ -129,3 +133,67 @@ body {
 #userInput:focus {
   box-shadow: 0 0 0 .15vw rgb(94, 29, 199);
 }
+
+
+
+
+#externalLinks {
+  display: flex;
+  gap: 55px;
+  position: relative;
+  transform: translate(-11%, -150%);
+}
+
+
+
+
+#githubBackground {
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  outline: circle;
+  border: circle;
+  background: rgba(255,94,247,1);
+  box-shadow: rgba(2,245,255,1)  0px 2px 5px -1px, rgba(2,245,255,1) 0px 1px 3px -1px;
+  transition: .3s ease-in-out;
+}
+
+
+
+
+#githubBackground:hover {
+  cursor: pointer;
+  scale: 1.1;
+  background-color: rgba(2,245,255,1) ;
+}
+
+#githubBackground:hover #githubCat {
+  fill: rgba(255,94,247,1);
+}
+
+
+
+#youtubeBackground {
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  outline: circle;
+  border: circle;
+  background: rgba(255,94,247,1);
+  box-shadow: rgba(2,245,255,1)  0px 2px 5px -1px, rgba(2,245,255,1) 0px 1px 3px -1px;
+  transition: .3s ease-in-out;
+}
+
+
+
+
+#youtubeBackground:hover {
+  cursor: pointer;
+  scale: 1.1;
+  background-color: rgba(2,245,255,1) ;
+}
+
+#youtubeBackground:hover #youtubeLogo {
+  fill: rgba(255,94,247,1);
+}
+
