@@ -20,7 +20,7 @@ app = Flask(__name__)
 chat_history = []
 
 
-CORS(app, resources={r"/chat": {"origins": "http://localhost:5500"}})
+CORS(app, resources={r"/chat": {"origins": ["http://localhost:5500", "http://127.0.0.1:5500"]}})
 
 
 
@@ -36,7 +36,7 @@ repeat_penalty = 1.1
 
 def build_prompt(history):
     prompt = "You are OctoBot, a friendly and helpful assistant. Keep replies short and natural."
-    for turn in history:
+    for turn in history[:-1]:
         prompt += f"\nYou: {turn['user']}\nOctoBot: {turn['bot']}"
     prompt += f"\nYou: {history[-1]['user']}\nOctoBot:"
     return prompt
@@ -50,6 +50,7 @@ def chat():
 
     if user_input.lower() == "$endconvo":
         return jsonify({"response": "This conversation has been closed."})
+
 
     try:
         chat_history.append({'user': user_input, 'bot': ""})
