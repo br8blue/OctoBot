@@ -17,17 +17,24 @@ sendButton.onclick = async () => {
 
 
 
-  try {
-    const res = await fetch("http://127.0.0.1:5000/chat", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ message })
-    });
-    const data = await res.json();
-    chatbox.innerHTML += `<div><strong>OctoBot:</strong> ${data.response}</div>`;
-  } catch (err) {
-    chatbox.innerHTML += `<div><strong>OctoBot:</strong> Oops! We bumped into an error with OctoBot. Please try again at a later time. </div>`;
+try {
+  const res = await fetch("http://127.0.0.1:5000/chat", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ message })
+  });
+
+  if (!res.ok) {
+    throw new Error(`HTTP error ${res.status}`);
   }
+
+  const data = await res.json();
+  chatbox.innerHTML += `<div><strong>OctoBot:</strong> ${data.response}</div>`;
+} catch (err) {
+  console.error("Fetch error:", err);
+  chatbox.innerHTML += `<div><strong>OctoBot:</strong> Oops! We bumped into an error with OctoBot. Please try again at a later time.</div>`;
+}
+
 
 
 

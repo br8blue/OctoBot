@@ -5,7 +5,7 @@ from flask_cors import CORS
 import traceback
 
 
-os.environ["GPT4ALL_NO_CUDA"] = ""
+os.environ["GPT4ALL_NO_CUDA"] = "1"
 
 
 
