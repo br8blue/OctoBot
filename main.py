@@ -25,7 +25,7 @@ CORS(app, resources={r"/chat": {"origins": ["http://localhost:5500", "http://127
 
 
 
-max_tokens = 60 
+max_tokens = 150
 temp = 0.7
 top_k = 40
 top_p = 0.9
