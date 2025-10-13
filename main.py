@@ -16,11 +16,11 @@ if not os.path.exists(model_path):
 
 
 model = GPT4All(model_path)
-app = Flask(__name__)
+app = Flask(__name__, template_folder="temp", static_folder="static")
 chat_history = []
 
 
-CORS(app, resources={r"/chat": {"origins": ["http://localhost:5000", "http://127.0.0.1:5000"]}})
+CORS(app, resources={r"/chat": {"origins": ["http://localhost:5500", "http://127.0.0.1:5500"]}})
 
 
 
