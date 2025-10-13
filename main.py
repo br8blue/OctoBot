@@ -3,6 +3,8 @@ from gpt4all import GPT4All
 import os
 from flask_cors import CORS
 import traceback
+from flask import Flask, request, jsonify, render_template
+
 
 
 os.environ["GPT4ALL_NO_CUDA"] = "1"
@@ -40,6 +42,13 @@ def build_prompt(history):
         prompt += f"\nYou: {turn['user']}\nOctoBot: {turn['bot']}"
     prompt += f"\nYou: {history[-1]['user']}\nOctoBot:"
     return prompt
+
+
+
+
+@app.route("/")
+def home():
+    return render_template("index.html")
 
 
 
