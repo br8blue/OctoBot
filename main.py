@@ -1,4 +1,3 @@
-from flask import Flask, request, jsonify
 from gpt4all import GPT4All
 import os
 from flask_cors import CORS
@@ -45,11 +44,13 @@ def build_prompt(history):
 
 
 
-
 @app.route("/")
 def home():
     return render_template("index.html")
 
+@app.route("/chat", methods=["GET"])
+def chat_ui():
+    return render_template("octobot.html")
 
 
 
@@ -94,5 +95,5 @@ def chat():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, port=5500)
     
