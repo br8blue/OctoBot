@@ -52,8 +52,6 @@ def home():
 def chat_ui():
     return render_template("octobot.html")
 
-
-
 @app.route("/chat", methods=["POST"])
 def chat():
     user_input = request.json.get("message", "").strip()
