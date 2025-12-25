@@ -48,3 +48,4 @@ try {
 input.addEventListener("keydown", e => {
   if (e.key === "Enter") sendButton.click();
 });
+

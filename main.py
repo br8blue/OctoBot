@@ -47,7 +47,7 @@ def build_prompt(history):
 @app.route("/")
 def home():
     return render_template("index.html")
-
+    
 @app.route("/chat", methods=["GET"])
 def chat_ui():
     return render_template("octobot.html")
