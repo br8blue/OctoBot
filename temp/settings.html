@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OctoBot Settings</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='octobotlogo.png') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+<h1>Settings</h1>
+
+<form action="{{ url_for('save_settings') }}" method="POST">
+    <label for="font">Choose a font:</label>
+    <select name="font" id="font">
+        <option value="Segoe UI" {% if font == 'Segoe UI' %}selected{% endif %}>Segoe UI</option>
+          <option value="Courier New" {% if font == 'Courier New' %}selected{% endif %}>Courier New</option>
+        <option value="Georgia" {% if font == 'Georgia' %}selected{% endif %}>Georgia</option>
+        <option value="Comic Sans MS" {% if font == 'Comic Sans MS' %}selected{% endif %}>Comic Sans MS</option>
+        <option value="Times New Roman" {% if font == 'Times New Roman' %}selected{% endif %}>Times New Roman</option>
+    </select>
+
+    <button type="submit">Save</button>
+</form>
+
+<br>
+
+<a href="{{ url_for('home') }}"><button>Return</button></a>
+<a href="{{ url_for('chat_ui') }}"><button>Talk to OctoBot!</button></a>
+
+</body>
+</html>
+1

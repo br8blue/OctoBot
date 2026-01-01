@@ -2,7 +2,7 @@ from gpt4all import GPT4All
 import os
 from flask_cors import CORS
 import traceback
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify, render_template, redirect, url_for, make_response
 
 
 
@@ -47,7 +47,24 @@ def build_prompt(history):
 @app.route("/")
 def home():
     return render_template("index.html")
-    
+
+
+
+@app.route("/settings", methods=["GET"])
+def settings():
+    font = request.cookies.get("font", "Segoe UI")
+    return render_template("settings.html", font=font)
+
+@app.route("/save_settings", methods=["POST"])
+def save_settings():
+    font = request.form.get("font", "Segoe UI")
+    resp = make_response(redirect(url_for("settings")))
+    resp.set_cookie("font", font) 
+    return resp
+
+
+
+   
 @app.route("/chat", methods=["GET"])
 def chat_ui():
     return render_template("octobot.html")
