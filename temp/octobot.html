@@ -10,7 +10,7 @@
 <title>OctoBot Chat</title>
 
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-
+<link rel="icon" type="image/png" href="{{ url_for('static', filename='octobotlogo.png') }}">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -18,13 +18,13 @@
 <body>
 
 
-<h2>OctoBot Chat</h2>
+<h1 id = "octobotChatHeader">OctoBot Chat</h1>
 
 <div id="chatbox" style="height:300px; overflow-y:auto;"></div>
 
 <input type="text" id="userInput" placeholder="Talk to OctoBot!" />
 
-<p id="loadingText" style="display:none;">Octobot is responding...</p>
+<p id="loadingText" style="display:none;">OctoBot is responding...</p>
 
 <button id="sendButton">Send!</button>
 

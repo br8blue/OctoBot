@@ -21,8 +21,8 @@
 
 
 #sendButton {
-  width: 165px;
-  height: 62px;
+  width: 185px;
+  height: 68px;
   cursor: pointer;
   color: #fff;
   font-size: 17px;
@@ -32,6 +32,8 @@
   background: #100720;
   transition: 0.1s;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: radial-gradient( circle farthest-corner at 10% 10%,  rgba(255,94,247,1) 17.8%, rgba(2,245,255,1) 100.2% );
+  transform: translate(0%, 80%);
 }
 
 
@@ -39,16 +41,15 @@
 transform: translate(0%, -320%);
 }
 
-
-
-
-#sendButton:active {
-  
-  transition: 0.5s;
+#loadingText{
+  font-size: xx-large;
 }
 
 
-
+#octobotChatHeader{
+  transform: translate(0%, -150%);
+  font-size: 80px;
+}
 
 
 body {
@@ -93,7 +94,7 @@ body {
   border: none;
   outline: none;
   padding: 0.4vw;
-  max-width: 190px;
+  width: 1600px;
   transition: .4s;
 }
 

@@ -8,7 +8,7 @@ from flask import Flask, request, jsonify, render_template
 
 os.environ["GPT4ALL_NO_CUDA"] = "1"
 
-
+    
 
 model_path = r"C:\Users\neels_xc\AILocal\mythomax-l2-13b.Q4_K_M.gguf"
 if not os.path.exists(model_path):
@@ -76,7 +76,7 @@ def chat():
                 top_p=top_p,
                 repeat_penalty=repeat_penalty
             )
-
+     
         print("=== Raw Response ===")
         print(response)
 
