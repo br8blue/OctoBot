@@ -64,14 +64,14 @@ def saveSettings():
 
    
 @app.route("/chat", methods=["GET"])
-def chat_ui():
+def chat():
     font = request.cookies.get("font")
     return render_template("octobot.html")
 
 
 
 @app.route("/chat", methods=["POST"])
-def chat():
+def chatUi():
     user_input = request.json.get("message", "").strip()
 
     if user_input.lower() == "$endconvo":
