@@ -64,7 +64,9 @@ transform: translate(0%, -320%);
     --font-courier: "Courier New",
 }
 
-
+:root{
+    --user-font: "{{font}}";
+}
 
 body {
   background-color: #100720;

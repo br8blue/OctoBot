@@ -21,7 +21,7 @@ app = Flask(__name__, template_folder="temp", static_folder="static")
 chat_history = []
 
 
-CORS(app, resources={r"/chat": {"origins": ["http://localhost:5500", "http://127.0.0.1:5500"]}})
+CORS(app, resources={r"/chat": {"origins": ["http://127.0.0.1:5500"]}})
 
 
 
@@ -45,17 +45,17 @@ def build_prompt(history):
 
 @app.route("/")
 def home():
-    font = request.cookies.get("font", "Segoe Ui")
+    font = request.cookies.get("font", "Segoe UI")
     return render_template("index.html", font=font)
 
 @app.route("/settings", methods=["GET"])
 def settings():
-    font = request.cookies.get("font", "Segoe Ui")
+    font = request.cookies.get("font", "Segoe UI")
     return render_template("settings.html", font=font)
 
 @app.route("/saveSettings", methods=["POST"])
 def saveSettings():
-    font = request.form.get("font", "Segoe Ui")
+    font = request.form.get("font", "Segoe UI")
     resp = make_response(redirect(url_for("settings")))
     resp.set_cookie("font", font) 
     return resp
@@ -65,21 +65,18 @@ def saveSettings():
    
 @app.route("/chat", methods=["GET"])
 def chat():
-    font = request.cookies.get("font", "Segoe Ui")
-    return render_template("octobot.html")
+    font = request.cookies.get("font", "Segoe UI")
+    return render_template("octobot.html", font=font)
 
 
 
 @app.route("/chat", methods=["POST"])
 def chatUi():
-    user_input = request.json.get("message", "").strip()
-
-    if user_input.lower() == "$endconvo":
-        return jsonify({"response": "This conversation has been closed."})
-
+    font = request.cookies.get("font", "Segoe UI")
+    userInput = request.json.get("message", "").strip()
 
     try:
-        chat_history.append({'user': user_input, 'bot': ""})
+        chat_history.append({'user': userInput, 'bot': ""})
         prompt = build_prompt(chat_history)
 
         print("=== Prompt Sent to Model ===")
@@ -95,7 +92,7 @@ def chatUi():
                 repeat_penalty=repeat_penalty
             )
      
-        print("Raw Response")
+        print("Pure Response:")
         print(response)
 
         reply = response.strip()
@@ -108,6 +105,7 @@ def chatUi():
         print("Error")
         traceback.print_exc()
         return jsonify({"response": f"Error occurred: {str(e)}"})
+    
 
 
 if __name__ == "__main__":
