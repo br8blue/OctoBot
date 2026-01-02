@@ -40,24 +40,22 @@ def build_prompt(history):
     for turn in history[:-1]:
         prompt += f"\nYou: {turn['user']}\nOctoBot: {turn['bot']}"
     prompt += f"\nYou: {history[-1]['user']}\nOctoBot:"
-    return prompt
-
+    return prompt  
 
 
 @app.route("/")
 def home():
-    return render_template("index.html")
-
-
+    font = request.cookies.get("font")
+    return render_template("index.html", font=font)
 
 @app.route("/settings", methods=["GET"])
 def settings():
-    font = request.cookies.get("font", "Segoe UI")
+    font = request.cookies.get("font")
     return render_template("settings.html", font=font)
 
-@app.route("/save_settings", methods=["POST"])
-def save_settings():
-    font = request.form.get("font", "Segoe UI")
+@app.route("/saveSettings", methods=["POST"])
+def saveSettings():
+    font = request.form.get("font")
     resp = make_response(redirect(url_for("settings")))
     resp.set_cookie("font", font) 
     return resp
@@ -67,7 +65,10 @@ def save_settings():
    
 @app.route("/chat", methods=["GET"])
 def chat_ui():
+    font = request.cookies.get("font")
     return render_template("octobot.html")
+
+
 
 @app.route("/chat", methods=["POST"])
 def chat():
@@ -94,7 +95,7 @@ def chat():
                 repeat_penalty=repeat_penalty
             )
      
-        print("=== Raw Response ===")
+        print("Raw Response")
         print(response)
 
         reply = response.strip()
@@ -104,7 +105,7 @@ def chat():
 
 
     except Exception as e:
-        print("=== Error ===")
+        print("Error")
         traceback.print_exc()
         return jsonify({"response": f"Error occurred: {str(e)}"})
 

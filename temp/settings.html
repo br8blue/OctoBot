@@ -2,17 +2,23 @@
 <html>
 <head>
     <title>OctoBot Settings</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <link rel="icon" type="image/png" href="{{ url_for('static', filename='octobotlogo.png') }}">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <link rel="icon" type="image/png" href="{{url_for('static', filename='octobotlogo.png')}}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    :root {
+        --user-font: "{{font}}";
+    }
+</style>
+
 </head>
 
 <body>
 
-<h1>Settings</h1>
+<h1 id="settingsHeader">Settings</h1>
 
-<form action="{{ url_for('save_settings') }}" method="POST">
-    <label for="font">Choose a font:</label>
+<form action="{{url_for('saveSettings')}}" method="POST">
+    <label for="font">Select a font:</label>
     <select name="font" id="font">
         <option value="Segoe UI" {% if font == 'Segoe UI' %}selected{% endif %}>Segoe UI</option>
           <option value="Courier New" {% if font == 'Courier New' %}selected{% endif %}>Courier New</option>
@@ -26,9 +32,8 @@
 
 <br>
 
-<a href="{{ url_for('home') }}"><button>Return</button></a>
-<a href="{{ url_for('chat_ui') }}"><button>Talk to OctoBot!</button></a>
+<a href="{{url_for('home')}}"><button>Return</button></a>
+<a href="{{url_for('chat_ui')}}"><button>Talk to OctoBot!</button></a>
 
 </body>
 </html>
-1

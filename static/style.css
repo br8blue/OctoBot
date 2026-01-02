@@ -52,9 +52,17 @@ transform: translate(0%, -320%);
 }
 
 
+
+:root {
+    --font-segoe: "Segoe UI", sans-serif;
+    --font-arial: Arial, sans-serif;
+    --font-georgia: Georgia, serif;
+}
+
+
+
 body {
   background-color: #100720;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: white;
   display: flex;
   flex-direction: column;
@@ -62,6 +70,7 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
+  font-family: var(--user-font);
 }
 
 
