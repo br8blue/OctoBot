@@ -45,17 +45,17 @@ def build_prompt(history):
 
 @app.route("/")
 def home():
-    font = request.cookies.get("font")
+    font = request.cookies.get("font", "Segoe Ui")
     return render_template("index.html", font=font)
 
 @app.route("/settings", methods=["GET"])
 def settings():
-    font = request.cookies.get("font")
+    font = request.cookies.get("font", "Segoe Ui")
     return render_template("settings.html", font=font)
 
 @app.route("/saveSettings", methods=["POST"])
 def saveSettings():
-    font = request.form.get("font")
+    font = request.form.get("font", "Segoe Ui")
     resp = make_response(redirect(url_for("settings")))
     resp.set_cookie("font", font) 
     return resp
@@ -65,7 +65,7 @@ def saveSettings():
    
 @app.route("/chat", methods=["GET"])
 def chat():
-    font = request.cookies.get("font")
+    font = request.cookies.get("font", "Segoe Ui")
     return render_template("octobot.html")
 
 
