@@ -62,6 +62,8 @@ transform: translate(0%, -320%);
     --font-georgia: "Georgia",
     --font-comic: "Comic Sans MS",
     --font-courier: "Courier New",
+    --font-arial: "Arial",
+    --font-georgia: "Georgia";
 }
 
 :root{

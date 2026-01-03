@@ -21,10 +21,12 @@
     <label for="font">Select a font:</label>
     <select name="font" id="font">
         <option value="Segoe UI" {% if font == 'Segoe UI' %}selected{% endif %}>Segoe UI</option>
-          <option value="Courier New" {% if font == 'Courier New' %}selected{% endif %}>Courier New</option>
+        <option value="Courier New" {% if font == 'Courier New' %}selected{% endif %}>Courier New</option>
         <option value="Georgia" {% if font == 'Georgia' %}selected{% endif %}>Georgia</option>
         <option value="Comic Sans MS" {% if font == 'Comic Sans MS' %}selected{% endif %}>Comic Sans MS</option>
         <option value="Times New Roman" {% if font == 'Times New Roman' %}selected{% endif %}>Times New Roman</option>
+        <option value="Arial" {% if font == 'Arial' %}selected{% endif %}>Arial</option>
+        <option value="Georgia" {% if font == 'Georgia' %}selected{% endif %}>Georgia</option>
     </select>
 
     <button type="submit">Save</button>
