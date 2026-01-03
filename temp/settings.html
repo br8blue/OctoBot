@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html data-theme="{{theme}}">
 <head>
     <title>OctoBot Page Settings</title>
     <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
@@ -8,6 +8,7 @@
     <style>
     :root {
         --user-font: "{{font}}";
+        --user-theme: "{{theme}}";
     }
 </style>
 
@@ -18,7 +19,7 @@
 <h1 id="settingsHeader">Settings</h1>
 
 <form action="{{url_for('saveSettings')}}" method="POST">
-    <label for="font">Select a font:</label>
+    <label for="font">Font:</label>
     <select name="font" id="font">
         <option value="Segoe UI" {% if font == 'Segoe UI' %}selected{% endif %}>Segoe UI</option>
         <option value="Courier New" {% if font == 'Courier New' %}selected{% endif %}>Courier New</option>
@@ -27,6 +28,14 @@
         <option value="Times New Roman" {% if font == 'Times New Roman' %}selected{% endif %}>Times New Roman</option>
         <option value="Arial" {% if font == 'Arial' %}selected{% endif %}>Arial</option>
         <option value="Georgia" {% if font == 'Georgia' %}selected{% endif %}>Georgia</option>
+    </select>
+
+
+
+        <label for="theme">Theme:</label>
+    <select name="theme" id="theme">
+        <option value="Ultraviolet" {% if theme == 'Ultraviolet' %}selected{% endif %}>Ultraviolet</option>
+        <option value="Thermal" {% if theme == "Thermal" %}selected{% endif %}>Thermal</option>
     </select>
 
     <button type="submit">Save</button>
@@ -38,4 +47,6 @@
 <a href="{{url_for('chatUi')}}"><button>Talk to OctoBot!</button></a>
 
 </body>
+
+
 </html>

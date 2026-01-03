@@ -3,16 +3,16 @@
   width: 300px;
   height: 82px;
   cursor: pointer;
-  color: #fff;
+  color: var(--text-color);
   font-size: 30px;
   border-radius: 1rem;
   border: none;
   position: relative;
-  background: #100720;
+  background: var(--bg-color);
   transition: 0.1s;
   font-family: var(--user-font);
   transform: translate(0%, -215%);
-  background: radial-gradient( circle farthest-corner at 10% 20%,  rgba(255,94,247,1) 17.8%, rgba(2,245,255,1) 100.2% );
+  background: radial-gradient( circle farthest-corner at 10% 20%,  var(--button1-color) 17.8%, var(--button2-color) 100.2% );
 }
 
 
@@ -24,15 +24,15 @@
   width: 185px;
   height: 68px;
   cursor: pointer;
-  color: #fff;
+  color: var(--text-color);
   font-size: 17px;
   border-radius: 1rem;
   border: none;
   position: relative;
-  background: #100720;
+  background: var(--bg-color);
   transition: 0.1s;
   font-family: var(--user-font);
-  background: radial-gradient( circle farthest-corner at 10% 10%,  rgba(255,94,247,1) 17.8%, rgba(2,245,255,1) 100.2% );
+  background: radial-gradient( circle farthest-corner at 10% 10%,  var(--button1-color) 17.8%, var(--button2-color) 100.2% );
   transform: translate(0%, 80%);
 }
 
@@ -67,12 +67,50 @@ transform: translate(0%, -320%);
 }
 
 :root{
-    --user-font: "{{font}}";
+    --user-theme: "Ultraviolet";
+    --bg-color: #100720;
+    --focus-color: #7f5af0;
+    --text-color: #ffffff;
+    --button1-color: #f059e8;
+    --button2-color: #02f5ff;
+    --input-color:#1c1c1e;
+    --inputShadow-color: #1f0b6680;
+    --inputHover-color: #87cfeb2f;
+
+}
+
+
+
+
+
+:root[data-theme="Ultraviolet"] {
+    --user-theme: "Ultraviolet";
+    --bg-color: #100720;
+    --focus-color: #7f5af0;
+    --text-color: #ffffff;
+    --button1-color: #f059e8;
+    --button2-color: #02f5ff;
+    --input-color:#1c1c1e;
+    --inputShadow-color: #1f0b6680;
+    --inputHover-color: #87cfeb2f;
+
+}
+
+:root[data-theme="Thermal"] {
+    --user-theme: "Thermal";
+    --bg-color:#ac482f;
+    --focus-color: #ff6f00;
+    --text-color: #020202;
+    --button1-color: #ff0800;
+    --button2-color: #f0a94d;
+    --input-color:#24221f;
+    --inputShadow-color: #66160b80;
+    --inputHover-color: #eb87872f;
 }
 
 body {
-  background-color: #100720;
-  color: white;
+  background-color: var(--bg-color);
+  color: var(--text-color);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -105,9 +143,9 @@ body {
   font-family: var(--user-font);
   font-weight: 500;
   font-size: .8vw;
-  color: #fff;
-  background-color: rgb(28,28,30);
-  box-shadow: 0 0 .4vw rgba(31, 11, 102, 0.5), 0 0 0 .15vw transparent;
+  color: var(--text-color);
+  background-color: var(--input-color);
+  box-shadow: 0 0 .4vw var(--inputShadow-color), 0 0 0 .15vw transparent;
   border-radius: 0.4vw;
   border: none;
   outline: none;
@@ -117,12 +155,12 @@ body {
 }
 
 #userInput:hover {
-  box-shadow: 0 0 0 .15vw rgba(135, 207, 235, 0.186);
+  box-shadow: 0 0 0 .15vw var(--inputHover-color);
   font-family: var(--user-font);
 }
 
 #userInput:focus {
-  box-shadow: 0 0 0 .15vw rgb(94, 29, 199);
+  box-shadow: 0 0 0 .15vw var(--focus-color);
   font-family: var(--user-font);
 }
 
@@ -145,8 +183,8 @@ body {
   height: 80px;
   outline: circle;
   border: circle;
-  background: rgba(255,94,247,1);
-  box-shadow: rgba(2,245,255,1)  0px 2px 5px -1px, rgba(2,245,255,1) 0px 1px 3px -1px;
+  background: var(--button1-color);
+  box-shadow: var(--button2-color)  0px 2px 5px -1px, var(--button2-color) 0px 1px 3px -1px;
   transition: .3s ease-in-out;
 }
 
@@ -156,11 +194,11 @@ body {
 #githubBackground:hover {
   cursor: pointer;
   scale: 1.1;
-  background-color: rgba(2,245,255,1) ;
+  background-color: var(--button2-color);
 }
 
 #githubBackground:hover #githubCat {
-  fill: rgba(255,94,247,1);
+  fill: var(--button1-color);
 }
 
 
@@ -171,8 +209,8 @@ body {
   height: 80px;
   outline: circle;
   border: circle;
-  background: rgba(255,94,247,1);
-  box-shadow: rgba(2,245,255,1)  0px 2px 5px -1px, rgba(2,245,255,1) 0px 1px 3px -1px;
+  background: var(--button1-color);
+  box-shadow: var(--button2-color)  0px 2px 5px -1px, var(--button2-color) 0px 1px 3px -1px;
   transition: .3s ease-in-out;
 }
 
@@ -182,10 +220,10 @@ body {
 #youtubeBackground:hover {
   cursor: pointer;
   scale: 1.1;
-  background-color: rgba(2,245,255,1) ;
+  background-color: var(--button2-color);
 }
 
 #youtubeBackground:hover #youtubeLogo {
-  fill: rgba(255,94,247,1);
+  fill: var(--button1-color);
 }
 

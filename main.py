@@ -46,19 +46,27 @@ def build_prompt(history):
 @app.route("/")
 def home():
     font = request.cookies.get("font", "Segoe UI")
-    return render_template("index.html", font=font)
+    theme = request.cookies.get("theme", "Ultraviolet")
+    return render_template("index.html", font=font, theme=theme)
 
 @app.route("/settings", methods=["GET"])
 def settings():
     font = request.cookies.get("font", "Segoe UI")
-    return render_template("settings.html", font=font)
+    theme = request.cookies.get("theme", "Ultraviolet")
+    return render_template("settings.html", font=font, theme=theme)
 
 @app.route("/saveSettings", methods=["POST"])
 def saveSettings():
     font = request.form.get("font", "Segoe UI")
-    resp = make_response(redirect(url_for("settings")))
-    resp.set_cookie("font", font) 
-    return resp
+    theme = request.form.get("theme", "Ultraviolet")
+
+
+    response = make_response(redirect(url_for("settings")))
+
+    response.set_cookie("font", font) 
+    response.set_cookie("theme", theme) 
+
+    return response
 
 
 
@@ -66,13 +74,15 @@ def saveSettings():
 @app.route("/chat", methods=["GET"])
 def chat():
     font = request.cookies.get("font", "Segoe UI")
-    return render_template("octobot.html", font=font)
+    theme=request.cookies.get("theme", "Ultraviolet")
+    return render_template("octobot.html", font=font, theme=theme)
 
 
 
 @app.route("/chat", methods=["POST"])
 def chatUi():
     font = request.cookies.get("font", "Segoe UI")
+    theme = request.cookies.get("theme", "Ultraviolet")
     userInput = request.json.get("message", "").strip()
 
     try:
@@ -97,7 +107,7 @@ def chatUi():
 
         reply = response.strip()
         chat_history[-1]['bot'] = reply
-        return jsonify({"response": reply})
+        return jsonify({"response": reply})       
 
 
 

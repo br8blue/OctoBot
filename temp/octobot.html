@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html data-theme="{{theme}}">
 
 
 <head>
@@ -15,13 +15,14 @@
 <style>
     :root {
         --user-font: "{{font}}";
+        --user-theme: "{{theme}}";
     }
 </style>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 </head>
-<body>
+<body data-theme="{{theme}}">
 
 
 <h1 id = "octobotChatHeader">OctoBot Chat</h1>
@@ -32,7 +33,7 @@
 
 <p id="loadingText" style="display:none;">OctoBot is responding...</p>
 
-<button id="sendButton">Send!</button>
+<button id="sendButton">Send</button>
 
 
 
