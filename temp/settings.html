@@ -21,21 +21,21 @@
 <form action="{{url_for('saveSettings')}}" method="POST">
     <label for="font">Font:</label>
     <select name="font" id="font">
-        <option value="Segoe UI" {% if font == 'Segoe UI' %}selected{% endif %}>Segoe UI</option>
-        <option value="Courier New" {% if font == 'Courier New' %}selected{% endif %}>Courier New</option>
-        <option value="Georgia" {% if font == 'Georgia' %}selected{% endif %}>Georgia</option>
-        <option value="Comic Sans MS" {% if font == 'Comic Sans MS' %}selected{% endif %}>Comic Sans MS</option>
-        <option value="Times New Roman" {% if font == 'Times New Roman' %}selected{% endif %}>Times New Roman</option>
-        <option value="Arial" {% if font == 'Arial' %}selected{% endif %}>Arial</option>
-        <option value="Georgia" {% if font == 'Georgia' %}selected{% endif %}>Georgia</option>
+        <option class="dropdownOption" value="Segoe UI" {% if font == 'Segoe UI' %}selected{% endif %}>Segoe UI</option>
+        <option class="dropdownOption" value="Courier New" {% if font == 'Courier New' %}selected{% endif %}>Courier New</option>
+        <option class="dropdownOption" value="Georgia" {% if font == 'Georgia' %}selected{% endif %}>Georgia</option>
+        <option class="dropdownOption" value="Comic Sans MS" {% if font == 'Comic Sans MS' %}selected{% endif %}>Comic Sans MS</option>
+        <option class="dropdownOption" value="Times New Roman" {% if font == 'Times New Roman' %}selected{% endif %}>Times New Roman</option>
+        <option class="dropdownOption" value="Arial" {% if font == 'Arial' %}selected{% endif %}>Arial</option>
+        <option class="dropdownOption" value="Georgia" {% if font == 'Georgia' %}selected{% endif %}>Georgia</option>
     </select>
 
 
 
         <label for="theme">Theme:</label>
     <select name="theme" id="theme">
-        <option value="Ultraviolet" {% if theme == 'Ultraviolet' %}selected{% endif %}>Ultraviolet</option>
-        <option value="Thermal" {% if theme == "Thermal" %}selected{% endif %}>Thermal</option>
+        <option class="dropdownOption" value="Ultraviolet" {% if theme == 'Ultraviolet' %}selected{% endif %}>Ultraviolet</option>
+        <option class="dropdownOption" value="Thermal" {% if theme == "Thermal" %}selected{% endif %}>Thermal</option>
     </select>
 
     <button type="submit">Save</button>

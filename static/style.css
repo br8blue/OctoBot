@@ -93,14 +93,15 @@ transform: translate(0%, -320%);
     --input-color:#1c1c1e;
     --inputShadow-color: #1f0b6680;
     --inputHover-color: #87cfeb2f;
+    --dropdown-color: #2d1252;
 
-}
-
+}    
+      
 :root[data-theme="Thermal"] {
     --user-theme: "Thermal";
     --bg-color:#ac482f;
     --focus-color: #ff6f00;
-    --text-color: #020202;
+    --text-color: #ffffff;
     --button1-color: #ff0800;
     --button2-color: #f0a94d;
     --input-color:#24221f;
@@ -125,7 +126,7 @@ body {
 
 #welcome {
   font-size: 80px;
-  margin-bottom: 20px;
+  margin-bottom: 20px;   
   text-align:center;
   transform: translate(0%, -255%);
 }
