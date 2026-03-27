@@ -8,9 +8,9 @@ from flask import Flask, request, jsonify, render_template, redirect, url_for, m
 
 os.environ["GPT4ALL_NO_CUDA"] = "1"
 
-    
 
-model_path = r"C:\Users\neels_xc\AILocal\mythomax-l2-13b.Q4_K_M.gguf"
+
+model_path = r"C:\Users\neels_xc\AILocal\mythomax-l2-13b.Q4_K_M.gguf"    
 if not os.path.exists(model_path):
     raise FileNotFoundError(f"Cannot find model file at: {model_path}")
 
@@ -43,7 +43,7 @@ def build_prompt(history):
     return prompt  
 
 
-@app.route("/")
+@app.route("/")             
 def home():
     font = request.cookies.get("font", "Segoe UI")
     theme = request.cookies.get("theme", "Ultraviolet")
@@ -108,7 +108,7 @@ def chatUi():
         reply = response.strip()
         chat_history[-1]['bot'] = reply
         return jsonify({"response": reply})       
-
+   
 
 
     except Exception as e:
