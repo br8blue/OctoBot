@@ -172,13 +172,13 @@ body {
   display: flex;
   gap: 55px;
   position: relative;
-  transform: translate(-11%, -150%);
+  transform: translate(-7%, -150%);
 }
 
 
 
 
-#githubBackground {
+#githubButton {
   border-radius: 50%;
   width: 80px;
   height: 80px;
@@ -192,19 +192,19 @@ body {
 
 
 
-#githubBackground:hover {
+#githubButton:hover {
   cursor: pointer;
   scale: 1.1;
   background-color: var(--button2-color);
 }
 
-#githubBackground:hover #githubCat {
+#githubButton:hover #githubCat {
   fill: var(--button1-color);
 }
 
 
 
-#youtubeBackground {
+#youtubeButton {
   border-radius: 50%;
   width: 80px;
   height: 80px;
@@ -218,15 +218,42 @@ body {
 
 
 
-#youtubeBackground:hover {
+#youtubeButton:hover {
   cursor: pointer;
   scale: 1.1;
   background-color: var(--button2-color);
 }
 
-#youtubeBackground:hover #youtubeLogo {
+#youtubeButton:hover #youtubeLogo {
   fill: var(--button1-color);
 }
+
+
+
+#settingsIndex {
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  outline: circle;
+  border: circle;
+  background: var(--button1-color);
+  box-shadow: var(--button2-color)  0px 2px 5px -1px, var(--button2-color) 0px 1px 3px -1px;
+  transition: .3s ease-in-out;
+}
+
+
+
+
+#settingsIndex:hover {
+  cursor: pointer;
+  scale: 1.1;
+  background-color: var(--button2-color);
+}
+
+#settingsIndex:hover #settingsIcon {
+  fill: var(--button1-color);
+}
+
 
 
 
