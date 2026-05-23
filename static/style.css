@@ -228,3 +228,61 @@ body {
   fill: var(--button1-color);
 }
 
+
+
+#font{
+  cursor: pointer;
+  background: var(--bg-color);
+  transition: 0.1s;
+  font-family: var(--user-font);
+  border-radius: 1rem;
+  border: none;
+  position: relative;
+  background: radial-gradient( circle farthest-corner at 10% 20%,  var(--button1-color) 17.8%, var(--button2-color) 100.2% );
+}
+
+
+#theme{
+  cursor: pointer;
+  background: var(--bg-color);
+  transition: 0.1s;
+  font-family: var(--user-font);
+  border-radius: 1rem;
+  border: none;
+  position: relative;
+  background: radial-gradient( circle farthest-corner at 10% 20%,  var(--button1-color) 17.8%, var(--button2-color) 100.2% );
+}
+
+
+#return{
+  cursor: pointer;
+  background: var(--bg-color);
+  transition: 0.1s;
+  font-family: var(--user-font);
+  border-radius: 1rem;
+  border: none;
+  position: relative;
+  background: radial-gradient( circle farthest-corner at 10% 20%,  var(--button1-color) 17.8%, var(--button2-color) 100.2% );
+}
+
+#openChatFromSettings{
+  cursor: pointer;
+  background: var(--bg-color);
+  transition: 0.1s;
+  font-family: var(--user-font);
+  border-radius: 1rem;
+  border: none;
+  position: relative;
+  background: radial-gradient( circle farthest-corner at 10% 20%,  var(--button1-color) 17.8%, var(--button2-color) 100.2% );
+}
+
+#save{
+  cursor: pointer;
+  background: var(--bg-color);
+  transition: 0.1s;
+  font-family: var(--user-font);
+  border-radius: 1rem;
+  border: none;
+  position: relative;
+  background: radial-gradient( circle farthest-corner at 10% 20%,  var(--button1-color) 17.8%, var(--button2-color) 100.2% );
+}
