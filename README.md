@@ -2,4 +2,8 @@
 
 Have you ever wished you were able to customize your AI agent's website? Websites like ChatGPT run on a default light theme, which at first just seems like an annoying aspect. However, studies from Harvard University exhibit that brighter screens and themes on websites (like ChatGPT's default one) actually put more strain on your eyes. This is because it forces your eyes to adapt to the surface you are looking at, which is the same reason why turning on the lights after waking up makes it so hard to keep them fully open. That's where Octobot comes in! Octobot is an AI chatbot that is hosted on a website that is customizable, allowing for a more personalized user experience. Factors like background color, font color, and the font family are all customizable with Octobot!
 
+
+The demonstration on YouTube is out!: https://www.youtube.com/watch?v=7iqarLuCMQ8&t=5s
+
+
 ![OctoBot Icon](static/octobotlogo.png)
